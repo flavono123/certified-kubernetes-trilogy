@@ -29,3 +29,7 @@
 * [Scheduling](common/scheduling/README.md)
   * [Taints and Tolerations](common/scheduling/taints-and-tolerations.md)
   * [Node Affinities](common/scheduling/node-affinities.md)
+
+## CKA
+* [Storage](cka/storage/README.md)
+  * [Storage Class](cka/storage/storage-class.md)
