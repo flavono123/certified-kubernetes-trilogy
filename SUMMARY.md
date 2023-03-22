@@ -32,8 +32,11 @@
 
 ## CKA
 * [Storage](cka/storage/README.md)
+  * [(Review)Volume, Persistent Volume](cka/storage/review-volume-pv.md)
   * [Storage Class](cka/storage/storage-class.md)
 * [Workloads and Scheduling](cka/workloads_and_scheduling/README.md)
+  * [(Review)Deployments](cka/workloads_and_scheduling/review-deployment.md)
+  * [(Review)Node affinities, Taints and Tolerations](cka/workloads_and_scheduling/review-scheduling.md)
   * [DaemonSets](cka/workloads_and_scheduling/daemonsets.md)
   * [Static Pods](cka/workloads_and_scheduling/static-pods.md)
   * [StatefulSets](cka/workloads_and_scheduling/statefulsets.md)
