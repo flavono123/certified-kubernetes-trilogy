@@ -33,3 +33,7 @@
 ## CKA
 * [Storage](cka/storage/README.md)
   * [Storage Class](cka/storage/storage-class.md)
+* [Workloads and Scheduling](cka/workloads_and_scheduling/README.md)
+  * [DaemonSets](cka/workloads_and_scheduling/damonesets.md)
+  * [Static Pods](cka/workloads_and_scheduling/static-pods.md)
+  * [StatefulSets](cka/workloads_and_scheduling/statefulsets.md)
