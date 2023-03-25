@@ -1,4 +1,4 @@
-# Curriculums
+# Contents
 
 1. Common
    1. K8s 101
@@ -9,10 +9,10 @@
    6. Scheduling
 2. CKA
    1. Storage
-   2. Troubleshooting
-   3. Workloads & Scheduling
+   2. Workloads & Scheduling
+   3. Services & Networking
    4. Cluster Architecture, Installation & Configuration
-   5. Services & Networking
+   5. Troubleshooting
 3. CKAD
    1. Application Deployment
    2. Application Observability and Maintenance
