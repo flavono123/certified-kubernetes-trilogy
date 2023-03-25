@@ -11,6 +11,7 @@
 <br> - 타입: <code>hostPath</code>
 <br> - 경로: /tmp/hostpath
 </summary>
+<pre><code>
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -21,4 +22,5 @@ spec:
   containers:
   - image: nginx
 ```
+</code></pre>
 </details>
