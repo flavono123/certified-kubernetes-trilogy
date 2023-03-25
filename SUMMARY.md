@@ -40,3 +40,7 @@
   * [DaemonSets](cka/workloads_and_scheduling/daemonsets.md)
   * [Static Pods](cka/workloads_and_scheduling/static-pods.md)
   * [StatefulSets](cka/workloads_and_scheduling/statefulsets.md)
+* [Services and Networking](cka/services_and_networking/README.md)
+  * [(Review)Services, DNS, Ingresses](cka/services_and_networking/review_service_dns_ingress.md)
+  * [(Review)Network Policies](cka/services_and_networking/review_network_policy.md)
+  * [CNI](cka/services_and_networking/cni.md)
