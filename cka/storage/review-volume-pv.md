@@ -11,14 +11,12 @@
 <br> - 타입: <code>hostPath</code>
 <br> - 경로: /tmp/hostpath
 </summary>
-<pre><code>
-apiVersion: v1
+<pre><code>apiVersion: v1
 kind: Pod
 metadata:
   name: pod-vol
   namespace: default
 spec:
   containers:
-  - image: nginx
-</code></pre>
+  - image: nginx</code></pre>
 </details>
