@@ -53,7 +53,7 @@
   * [Kubeadm](cka/cluster_architecture_installation_configuration/kubeadm.md)
   * [Cluster Upgrade](cka/cluster_architecture_installation_configuration/cluster_upgrade.md)
   * [Etcd Backup and Restore](cka/cluster_architecture_installation_configuration/etcd_backup_restore.md)
-* [Troubleshooting]
+* [Troubleshooting](cka/troubleshooting/README.md)
   * [Log and Monitoring](cka/troubleshooting/log_monitoring.md)
   * [Application Failure](cka/troubleshooting/application_troubleshooting.md)
   * [Cluster Componentes Failure](cka/troubleshooting/cluster_components_troubleshooting.md)
