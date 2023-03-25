@@ -12,7 +12,6 @@
 <br> - 경로: /tmp/hostpath
 </summary>
 <pre><code>
-```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -21,6 +20,5 @@ metadata:
 spec:
   containers:
   - image: nginx
-```
 </code></pre>
 </details>
