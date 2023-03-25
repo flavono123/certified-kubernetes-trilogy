@@ -8,8 +8,8 @@
 <details>
 <summary>
 컨테이너 이미지 `nginx` 파드 (이름) `pod-vol`을 만들고 다음 볼륨에 연결하세요.
-- 타입: `hostPath`
-- 경로: /tmp/hostpath
+<br> - 타입: `hostPath`
+<br> - 경로: /tmp/hostpath
 </summary>
 ```yaml
 apiVersion: v1
