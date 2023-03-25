@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Curriculums](README.md)
+* [Contents](README.md)
 
 ## Common
 
