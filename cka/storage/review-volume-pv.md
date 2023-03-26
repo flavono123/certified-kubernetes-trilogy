@@ -133,9 +133,9 @@ $ k exec -it pod-pvc -- cat /data/log.txt
 </details>
 
 <details>
-<summary>
-<br> <b>5. PV - PVC 바인딩</b>
+<summary><b>5. PV - PVC 바인딩</b>
 <br> 다음 PV, <code>pv-2</code>, 와 PVC, <code>pvc-2</code> 를 바인딩 하도록 <b>PVC</b>를 수정하세요.
+<br>
 <pre><code>apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -159,6 +159,7 @@ spec:
     requests:
       storage: 100Mi
 </code></pre>
+
 </summary>
 <pre><code>apiVersion: v1
 kind: PersistentVolumeClaim
