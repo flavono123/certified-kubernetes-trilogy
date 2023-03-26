@@ -147,17 +147,6 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /data/pv-2
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pvc-2
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 100Mi
 </code></pre>
 
 </summary>
