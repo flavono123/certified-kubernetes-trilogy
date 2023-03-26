@@ -17,7 +17,7 @@
 
 
 <details>
-<summary><br> <b>1. Volume</b>
+<summary><b>1. Volume</b>
 <br> 컨테이너 이미지 <code>nginx</code> 사용해  <code>pod-vol</code> 이름의 파드 만들고 다음 볼륨에 연결하세요.
 <br> - 타입: <code>hostPath</code>
 <br> - 컨테이너 포트: 80
@@ -78,7 +78,7 @@ spec:
 </details>
 
 <details>
-<summary><br> <b>3. Persistent Volume Claim</b>
+<summary><b>3. Persistent Volume Claim</b>
 <br> <code>pvc-1</code> 이름의 Persistent Volume Claim 만들고 다음과 같이 설정하세요.
 <br> - 요청 용량: 100Mi
 <br> - 액세스 모드: <code>ReadWriteOnce</code>
@@ -97,7 +97,7 @@ spec:
 </details>
 
 <details>
-<summary><br> <b>4. PVC 파드 연결</b>
+<summary><b>4. PVC 파드 연결</b>
 <br> <code>pod-pvc</code> 이름의 파드 만들고 다음 볼륨에 연결하세요.
 <br> - 컨테이너 이미지: <code>busybox</code>
 <br> - 타입: <code>persistentVolumeClaim</code>
