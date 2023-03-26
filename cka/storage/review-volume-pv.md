@@ -1,16 +1,4 @@
 # (Review) Volumes, Persistent Volumes
-<style>
-  summary::before {
-    content: "정답 확인 ";
-    font-weight: normal;
-  }
-  details[open] summary::before {
-    content: "정답 가리기 ";
-    color: orange;
-    font-weight: bold;
-  }
-</style>
-
 > 📘 Cluster: **k8s**(default)
 <br> `vagrant provision` 또는
 <br> `vagrant destroy -f && vagrant up`
