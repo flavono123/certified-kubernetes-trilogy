@@ -11,13 +11,15 @@
 <br> - 컨테이너 이미지: <code>nginx</code>
 <br> - 레이블 할 노드: <code>node-2</code>
 </summary>
-<pre><code>$ k label node node-2 number=2
+
+```sh
+$ k label node node-2 number=2
 $ k run two --image=nginx $do > pod-two.yaml
 # pod-two.yaml 수정
+```
 
-</code></pre>
-
-<pre><code>apiVersion: v1
+```yaml
+apiVersion: v1
 kind: Pod
 metadata:
   name: two
@@ -34,7 +36,7 @@ spec:
             operator: In
             values:
             - "2"
-</code></pre>
+```
 
 </details>
 
