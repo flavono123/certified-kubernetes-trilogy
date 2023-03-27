@@ -52,12 +52,15 @@ spec:
 <br>   - 레이블 셀렉터: <code>number=2</code>
 <br>   - 가중치: <code>50</code>
 </summary>
-<pre><code>$ k label node node-3 number=3
+
+```sh
+$ k label node node-3 number=3
 $ k run three-over-two --image=nginx $do > pod-three-over-two.yaml
 # pod-three-over-two.yaml 수정
-</code></pre>
+```
 
-<pre><code>apiVersion: v1
+```yaml
+apiVersion: v1
 kind: Pod
 metadata:
   name: three-over-two
@@ -82,7 +85,8 @@ spec:
             operator: In
             values:
             - "2"
-</code></pre>
+```
+
 </details>
 
 <details>
@@ -91,24 +95,27 @@ spec:
 <br> - <code>node-2</code>: <code>wonder=true:NoSchedule</code>
 <br> - <code>node-3</code>: <code>yonder=true:NoSchedule</code>
 </summary>
-<pre><code>$ k taint node node-2 wonder=true:NoSchedule
+
+```sh
+$ k taint node node-2 wonder=true:NoSchedule
 $ k taint node node-3 yonder=true:NoSchedule
 # 확인
 $ k describe node node-2 | grep Taint -A 5
 $ k describe node node-3 | grep Taint -A 5
+```
 
-</code></pre>
 </details>
 
 <details>
 <summary><b>4. Taints 삭제</b>
 <br> <code>node-3</code>의 테인트 <code>yonder=true:NoSchedule</code>를 삭제하세요.
 </summary>
-<pre><code>$ k taint node node-2 yonder=true:NoSchedule-
+
+```sh
+$ k taint node node-2 yonder=true:NoSchedule-
 # 확인
 $ k describe node node-2 | grep Taint -A 5
-
-</code></pre>
+```
 
 </details>
 
@@ -118,11 +125,14 @@ $ k describe node node-2 | grep Taint -A 5
 <br> - 파드 이름: <code>must-in-two</code>
 <br> - 컨테이너 이미지: <code>nginx</code>
 </summary>
-<pre><code>$ k run must-in-two --image=nginx $do > pod-must-in-two.yaml
-# pod-must-in-two.yaml 수정
-</code></pre>
 
-<pre><code>apiVersion: v1
+```sh
+$ k run must-in-two --image=nginx $do > pod-must-in-two.yaml
+# pod-must-in-two.yaml 수정
+```
+
+```yaml
+apiVersion: v1
 kind: Pod
 metadata:
   name: must-in-two
@@ -143,6 +153,6 @@ spec:
             operator: In
             values:
             - "2"
+```
 
-</code></pre>
 </details>
