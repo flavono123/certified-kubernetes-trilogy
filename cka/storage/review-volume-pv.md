@@ -12,7 +12,9 @@
 <br> - 볼륨 경로: /data/html
 <br> - 마운트 경로: /usr/share/nginx/html
 </summary>
-<pre><code>apiVersion: v1
+
+```yaml
+apiVersion: v1
 kind: Pod
 metadata:
   name: pod-vol
@@ -29,9 +31,10 @@ spec:
   - name: hostpath-volume
     hostPath:
       path: /data/html
-</code></pre>
+```
 
-<pre><code>$ k get pod pod-vol -owide
+```sh
+$ k get pod pod-vol -owide
 # 노드 확인 후 노드의 /data/html 경로에 index.html 파일 생성(e.g. node-2)
 $ ssh node-2
 $ su -i
@@ -40,7 +43,7 @@ $ echo "Hello from node-2" > /data/html/index.html
 $ k exec -it pod-vol -- cat /usr/share/nginx/html/index.html
 # 또는 curl 요청으로 index.html 파일 확인
 $ curl < pod-id >
-</code></pre>
+```
 </details>
 
 <details>
@@ -51,7 +54,9 @@ $ curl < pod-id >
 <br> - 용량: 100Mi
 <br> - 액세스 모드: <code>ReadWriteOnce</code>
 </summary>
-<pre><code>apiVersion: v1
+
+```yaml
+apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv-1
@@ -62,7 +67,8 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /data/pv-1
-</code></pre>
+```
+
 </details>
 
 <details>
@@ -71,7 +77,9 @@ spec:
 <br> - 요청 용량: 100Mi
 <br> - 액세스 모드: <code>ReadWriteOnce</code>
 </summary>
-<pre><code>apiVersion: v1
+
+```yaml
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-1
@@ -81,7 +89,8 @@ spec:
   resources:
     requests:
       storage: 100Mi
-</code></pre>
+```
+
 </details>
 
 <details>
@@ -91,7 +100,9 @@ spec:
 <br> - 타입: <code>persistentVolumeClaim</code>
 <br> - 마운트 경로: /data
 </summary>
-<pre><code>apiVersion: v1
+
+```yaml
+apiVersion: v1
 kind: Pod
 metadata:
   name: pod-pvc
@@ -110,17 +121,22 @@ spec:
   - name: pvc-volume
     persistentVolumeClaim:
       claimName: pvc-1
-</code></pre>
-<pre><code># 파드의 컨테이너에서 log.txt 파일 확인
+```
+
+```sh
+# 파드의 컨테이너에서 log.txt 파일 확인
 $ k exec -it pod-pvc -- cat /data/log.txt
-</code></pre>
+```
+
 </details>
 
 <details>
 <summary><b>5. PV - PVC 바인딩</b>
 <br> 다음 PV, <code>pv-2</code>, 와 PVC, <code>pvc-2</code> 를 바인딩 하도록 <b>PVC</b>를 수정하세요.
 </summary>
-<pre><code>apiVersion: v1
+
+```yaml
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-2
@@ -130,9 +146,13 @@ spec:
   resources:
     requests:
       storage: 50Mi # pv-2의 용량보다 작거나 같게 수정
-</code></pre>
-<pre><code> # pv-2, pvc-2 바인딩 확인
+```
+
+```sh
+# pv-2, pvc-2 바인딩 확인
 $ k get pv,pvc
+```
+
 </details>
 
 ```yaml
