@@ -50,5 +50,3 @@ $ vagrant ssh node-1
 vagrant@node-1~: sudo -i
 root@node-1~: k get po
 ```
-
-### Look around the cluster
