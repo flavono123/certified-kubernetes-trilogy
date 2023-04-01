@@ -107,7 +107,7 @@ Error from server (Forbidden): pods is forbidden: User "flavono123" cannot list 
 
 > CKA 시험에서도 문제마다 컨텍스트를 변경하여 다른 클러스터, 사용자 그리고 네임스페이스에서 문제를 풀어야 합니다. 이때 `config use-context` 명령은 제공됩니다.
 
-다시 원래 컨텍스트로 돌아가서 추가한 사용자와 컨텍스트를 삭제하겠습니다.
+다시 원래 컨텍스트로 돌아가겠습니다.
 
 ```sh
 # 컨텍스트 원복
@@ -116,22 +116,6 @@ Switched to context "kubernetes-admin@kubernetes".
 
 $ k config current-context
 kubernetes-admin@kubernetes
-
-# 추가한 컨텍스트 삭제
-$ k config delete-context flavono123@kubernetes
-deleted context flavono123@kubernetes from /root/.kube/config
-
-$ k config get-contexts
-CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
-*         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin
-
-# 추가한 사용자 삭제
-$ k config delete-user flavono123
-deleted user flavono123 from /root/.kube/config
-
-$ k config get-users
-NAME
-kubernetes-admin
 ```
 
 위에서 수행한 `config` 명령을 통한 작업들은 kubeconfig YAML 파일을 직접 수정하는 것과 같습니다.
