@@ -23,6 +23,8 @@ $ cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep authorization-mode
     - --authorization-mode=Node,RBAC
 ```
 
+## Role과 RoleBinding
+
 쿠버네티스는 RBAC 인가 모델을 구현하기 위한 객체, `Role`과 `RoleBinding`이 있습니다.
 
 ```yaml
