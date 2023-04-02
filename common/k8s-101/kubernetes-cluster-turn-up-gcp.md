@@ -5,7 +5,7 @@
   - 새 구글 아이디를 만들어서도 가능
   - https://cloud.google.com/free/docs/free-cloud-features?hl=ko#free-trial
 
-#### Compute Engine 준비
+### Compute Engine 준비
 - [GCP 콘솔](https://console.cloud.google.com/) 로 이동하여 로그인
 - 프로젝트 생성(My First Project)
 - Compute Engine API 활성화
@@ -77,4 +77,16 @@ root@node-1:~# k get po -A
 # 모든 파드 STATUS Running인지 확인
 
 root@node-1:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/kubernetes-the-hard-way/main/gcloud-setup/controlpane-post.sh)
+```
+
+### 항상 인스턴스 종료하기
+그날 실습이 끝나면 항상 인스턴스를 종료합시다. 사용하지 않을 땐 꺼두어야 불필요한 비용이 발생하지 않습니다.
+```sh
+$ gcloud compute instances stop node-1 node-2 node-3
+```
+
+다시 실습을 시작할 땐 인스턴스를 시작하고 `node-1`에 접속하여 진행합니다.
+```sh
+$ gcloud compute instances start node-1 node-2 node-3
+$ gcloud compute ssh node-1
 ```
