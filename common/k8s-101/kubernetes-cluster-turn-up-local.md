@@ -1,8 +1,8 @@
 ---
-description: custom ansible
+description: Deprecated
 ---
 
-# Kubernetes Cluster Turn up(Local)
+# DEPRECATED!: Kubernetes Cluster Turn up(Local)
 
 ### Prerequisuite
 
