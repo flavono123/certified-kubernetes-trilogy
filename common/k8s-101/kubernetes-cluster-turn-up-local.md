@@ -1,9 +1,9 @@
 ---
-description: ⚠️ DEPRECATED
+description: 더 이상 지원하지 않습니다. Kubernetes Cluster Turn up GCP로 실습하세요.
 ---
 
-# ⚠️DEPRECATED!: Kubernetes Cluster Turn up(Local)
-
+### ⚠️DEPRECATED!: Kubernetes Cluster Turn up(Local)
+Vagrant + Ansible을 사용한 로컬 클러스터 구성은 더 이상 지원하지 않습니다. [Kubernetes Cluster Turn up(GCP)](common/k8s-101/kubernetes-cluster-turn-up-gcp.md)으로 실습하세요.
 ### Prerequisuite
 
 #### macOS
