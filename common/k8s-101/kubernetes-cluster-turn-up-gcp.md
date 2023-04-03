@@ -5,7 +5,7 @@
   - 새 구글 아이디를 만들어서도 가능
   - https://cloud.google.com/free/docs/free-cloud-features?hl=ko#free-trial
 
-#### Compute Engine 준비
+### Compute Engine 준비
 - [GCP 콘솔](https://console.cloud.google.com/) 로 이동하여 로그인
 - 프로젝트 생성(My First Project)
 - Compute Engine API 활성화
@@ -35,7 +35,7 @@ $ gcloud compute ssh node-1
 # 최초 ssh key 생성 및 등록 필요, passphrase 없이 엔터만 입력할 것
 # node-1
 user@node-1:~$ sudo -i
-root@node-1:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/kubernetes-the-hard-way/main/gcloud-setup/controlplane.sh)
+root@node-1:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/gcloud-setup/controlplane.sh)
 ...
 
 ### node-2에서 실행 ###
@@ -49,7 +49,7 @@ kubeadm join <node-1-ip>8:6443 --token yyyyyy.yyyyyyyyyyyyyyyy --discovery-token
 $ gcloud compute ssh node-2
 # node-
 user@node-2:~$ sudo -i
-root@node-2:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/kubernetes-the-hard-way/main/gcloud-setup/worker.sh)
+root@node-2:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/gcloud-setup/worker.sh)
 ...
 # node-1 명령 복사하여 실행
 kubeadm join <node-1-ip>:6443 --token xxxxxx.xxxxxxxxxxxxxxxx --discovery-token-ca-cert-hash sha256:zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
@@ -59,7 +59,7 @@ kubeadm join <node-1-ip>:6443 --token xxxxxx.xxxxxxxxxxxxxxxx --discovery-token-
 $ gcloud compute ssh node-3
 # node-3
 user@node-3:~$ sudo -i
-root@node-3:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/kubernetes-the-hard-way/main/gcloud-setup/worker.sh)
+root@node-3:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/gcloud-setup/worker.sh)
 ...
 # node-1 명령 복사하여 실행
 kubeadm join <node-1-ip>8:6443 --token yyyyyy.yyyyyyyyyyyyyyyy --discovery-token-ca-cert-hash sha256:zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
@@ -76,5 +76,17 @@ node-3   Ready    <none>          55s     v1.26.1
 root@node-1:~# k get po -A
 # 모든 파드 STATUS Running인지 확인
 
-root@node-1:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/kubernetes-the-hard-way/main/gcloud-setup/controlpane-post.sh)
+root@node-1:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/gcloud-setup/controlplane-post.sh)
+```
+
+### 항상 인스턴스 종료하기
+그날 실습이 끝나면 항상 인스턴스를 종료합시다. 사용하지 않을 땐 꺼두어야 불필요한 비용이 발생하지 않습니다.
+```sh
+$ gcloud compute instances stop node-1 node-2 node-3
+```
+
+다시 실습을 시작할 땐 인스턴스를 시작하고 `node-1`에 접속하여 진행합니다.
+```sh
+$ gcloud compute instances start node-1 node-2 node-3
+$ gcloud compute ssh node-1
 ```
