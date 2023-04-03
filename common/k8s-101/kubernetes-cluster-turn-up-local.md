@@ -1,8 +1,8 @@
 ---
-description: Deprecated
+description: ⚠️ DEPRECATED
 ---
 
-# DEPRECATED!: Kubernetes Cluster Turn up(Local)
+# ⚠️DEPRECATED!: Kubernetes Cluster Turn up(Local)
 
 ### Prerequisuite
 

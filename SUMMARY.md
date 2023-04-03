@@ -6,8 +6,8 @@
 ## Common
 
 * [K8s 101](common/k8s-101/README.md)
-  * [Kubernetes Cluster Turn up(Local)](common/k8s-101/kubernetes-cluster-turn-up-local.md)
   * [Kubernetes Cluster Turn up(GCP)](common/k8s-101/kubernetes-cluster-turn-up-gcp.md)
+  * [⚠️DEPRECATED!: Kubernetes Cluster Turn up(Local)](common/k8s-101/kubernetes-cluster-turn-up-local.md)
   * [Pods and default usages of kubectl](common/k8s-101/pods-and-default-usages-of-kubectl.md)
   * [Labels and Selectors](common/k8s-101/labels-and-selectors.md)
   * [Namespaces](common/k8s-101/namespaces.md)
