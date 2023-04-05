@@ -1,27 +1,33 @@
 # Kubernetes Cluster Turn up(GCP)
 
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>클ㅓㅅㅡclu</p></figcaption></figure>
+
 ### Prerequisuite
-- GCP $300 크레딧 / 90일 무료 체험을 하지 않은 Google 계정
-  - 새 구글 아이디를 만들어서도 가능
-  - https://cloud.google.com/free/docs/free-cloud-features?hl=ko#free-trial
+
+* GCP $300 크레딧 / 90일 무료 체험을 하지 않은 Google 계정
+  * 새 구글 아이디를 만들어서도 가능
+  * https://cloud.google.com/free/docs/free-cloud-features?hl=ko#free-trial
 
 ### Compute Engine 준비
-- [GCP 콘솔](https://console.cloud.google.com/) 로 이동하여 로그인
-- 프로젝트 생성(My First Project)
-- Compute Engine API 활성화
-  - https://console.cloud.google.com/apis/library/compute.googleapis.com
-  - `사용` 버튼 클릭
-- [Compute Engine](https://console.cloud.google.com/compute/instances)에서 VM 인스턴스 3대 생성(이름 제외하고 공통)
-  - 리전: `asia-northeast3` (서울)
-  - 이름: `node-1`, `node-2`, `node-3` (각각 1개씩)
-  - 시리즈: `E2`(default)
-  - 부팅 디스크
-    - 운영체제: `Ubuntu`
-    - 버전: `Ubuntu 20.04 LTS` (**x86/64, amd64**)
-    - 디스크 크기(GB): 50
+
+* [GCP 콘솔](https://console.cloud.google.com/) 로 이동하여 로그인
+* 프로젝트 생성(My First Project)
+* Compute Engine API 활성화
+  * https://console.cloud.google.com/apis/library/compute.googleapis.com
+  * `사용` 버튼 클릭
+* [Compute Engine](https://console.cloud.google.com/compute/instances)에서 VM 인스턴스 3대 생성(이름 제외하고 공통)
+  * 리전: `asia-northeast3` (서울)
+  * 이름: `node-1`, `node-2`, `node-3` (각각 1개씩)
+  * 시리즈: `E2`(default)
+  * 부팅 디스크
+    * 운영체제: `Ubuntu`
+    * 버전: `Ubuntu 20.04 LTS` (**x86/64, amd64**)
+    * 디스크 크기(GB): 50
 
 ### gcloud 설치
-- https://cloud.google.com/sdk/docs/install?hl=ko
+
+* https://cloud.google.com/sdk/docs/install?hl=ko
+
 ```shell
 $ gcloud auth login
 $ gcloud projects list
@@ -30,6 +36,7 @@ $ gcloud compute instances list
 ```
 
 ### kubernetes 클러스터 설치
+
 ```shell
 $ gcloud compute ssh node-1
 # 최초 ssh key 생성 및 등록 필요, passphrase 없이 엔터만 입력할 것
@@ -80,12 +87,15 @@ root@node-1:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/certi
 ```
 
 ### 항상 인스턴스 종료하기
+
 그날 실습이 끝나면 항상 인스턴스를 종료합시다. 사용하지 않을 땐 꺼두어야 불필요한 비용이 발생하지 않습니다.
+
 ```sh
 $ gcloud compute instances stop node-1 node-2 node-3
 ```
 
 다시 실습을 시작할 땐 인스턴스를 시작하고 `node-1`에 접속하여 진행합니다.
+
 ```sh
 $ gcloud compute instances start node-1 node-2 node-3
 $ gcloud compute ssh node-1

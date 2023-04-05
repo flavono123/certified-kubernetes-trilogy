@@ -1,10 +1,10 @@
 # Kubeconfig
 
 ## Kubeconfig 파일
+
 kubeconfig는 `kubectl`로 클러스터에 접속하기 위한 구성 파일입니다.
 
-`kubectl`은 기본으로 사용자 홈 디렉토리에 위치한 kubeconfig 파일은 사용합니다.
-`--kubeconfig` 옵션이나 `KUBECONFIG` 환경 변수를 사용하여 사용할 kubeconfig 파일을 지정할 수 있습니다.
+`kubectl`은 기본으로 사용자 홈 디렉토리에 위치한 kubeconfig 파일은 사용합니다. `--kubeconfig` 옵션이나 `KUBECONFIG` 환경 변수를 사용하여 사용할 kubeconfig 파일을 지정할 수 있습니다.
 
 ```sh
 $ k get po
@@ -31,10 +31,12 @@ clusters:
 ```
 
 ## Kubeconfig 파일 구성
+
 kubeconfig 파일에는 클러스터, 사용자, 네임스페이스 및 인증서와 같은 구성 요소가 포함됩니다:
-- `clusters`: 접속할 클러스터의 이름, API 서버 주소 및 인증서 관련 정보가 포함됩니다.
-- `users`: 사용자 인증 정보가 포함됩니다. 이 인증 정보로 사용자를 식별합니다.
-- `contexts`: 클러스터, 사용자 및 네임스페이스를 결합한 컨텍스트가 포함됩니다. 컨텍스트는 클라이언트가 사용하는 현재 작업 환경을 나타냅니다.
+
+* `clusters`: 접속할 클러스터의 이름, API 서버 주소 및 인증서 관련 정보가 포함됩니다.
+* `users`: 사용자 인증 정보가 포함됩니다. 이 인증 정보로 사용자를 식별합니다.
+* `contexts`: 클러스터, 사용자 및 네임스페이스를 결합한 컨텍스트가 포함됩니다. 컨텍스트는 클라이언트가 사용하는 현재 작업 환경을 나타냅니다.
 
 `config` 명령으로 각각 확인할 수 있습니다.
 
@@ -67,6 +69,7 @@ kubernetes-admin@kubernetes
 ```
 
 ## Kubeconfig 파일 수정
+
 kubeconfig 파일은 `kubectl config` 명령으로 수정할 수 있습니다. 앞선 [CSR 장](csr.md)에서 만든 사용자를 kubeconfig에 추가해보겠습니다.
 
 ```sh
@@ -120,9 +123,9 @@ kubernetes-admin@kubernetes
 
 위에서 수행한 `config` 명령을 통한 작업들은 kubeconfig YAML 파일을 직접 수정하는 것과 같습니다.
 
-
 <details>
-<summary>Q1. <code>kubernetes-admin@kubernetes</code> 컨텍스트의 기본 네임스페이스를 <code>kube-system</code>으로 변경해보세요. </summary>
+
+<summary>Q1. <code>kubernetes-admin@kubernetes</code> 컨텍스트의 기본 네임스페이스를 <code>kube-system</code>으로 변경해보세요.</summary>
 
 ```sh
 $ k config set-context kubernetes-admin@kubernetes \
@@ -137,7 +140,10 @@ $ k config set-context kubernetes-admin@kubernetes \
   --namespace=''
 ```
 
----
+***
 
-### 참고
-- [kubeconfig 파일을 사용하여 클러스터 접근 구성하기](https://kubernetes.io/ko/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+#### 참고
+
+* [kubeconfig 파일을 사용하여 클러스터 접근 구성하기](https://kubernetes.io/ko/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+
+</details>
