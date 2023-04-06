@@ -200,6 +200,11 @@ echo "/nfs-storage $(ip n | grep ens4 | awk '{ print $1 }' | sed -e 's/1$/0\/24/
 systemctl restart nfs-kernel-server
 apt-get install -y nfs-common
 
+### tools
+apt-get update
+apt-get install -y jq
+snap install yq
+
 
 echo
 echo "### node-2에서 실행 ###"

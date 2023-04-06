@@ -1,6 +1,6 @@
 # Kubernetes Cluster Turn up(GCP)
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>클ㅓㅅㅡclu</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cluster-arch.png" alt=""><figcaption><p>클러스터 구성</p></figcaption></figure>
 
 ### Prerequisuite
 
@@ -29,6 +29,10 @@
 * https://cloud.google.com/sdk/docs/install?hl=ko
 
 ```shell
+$ gcloud init # 프롬프트에 전부 엔터(default)
+
+# 또는
+
 $ gcloud auth login
 $ gcloud projects list
 $ gcloud config set project <project-id>

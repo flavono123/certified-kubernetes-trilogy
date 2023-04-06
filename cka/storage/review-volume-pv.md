@@ -1,14 +1,11 @@
 # (Review) Volumes, Persistent Volumes
-> 📘 Cluster: **k8s**(default)
-<br> `vagrant provision` 또는
-<br> `vagrant destroy -f && vagrant up`
-
 
 <details>
 <summary><b>1. Volume</b>
 <br> 컨테이너 이미지 <code>nginx</code> 사용해  <code>pod-vol</code> 이름의 파드 만들고 다음 볼륨에 연결하세요.
-<br> - 타입: <code>hostPath</code>
 <br> - 컨테이너 포트: 80
+<br> - 타입: <code>hostPath</code>
+<br> - 볼륨 이름: <code>html</code>
 <br> - 볼륨 경로: /data/html
 <br> - 마운트 경로: /usr/share/nginx/html
 </summary>
@@ -25,10 +22,10 @@ spec:
     ports:
     - containerPort: 80
     volumeMounts:
-    - name: hostpath-volume
+    - name: html
       mountPath: "/usr/share/nginx/html"
   volumes:
-  - name: hostpath-volume
+  - name: html
     hostPath:
       path: /data/html
 ```
@@ -97,7 +94,9 @@ spec:
 <summary><b>4. PVC 파드 연결</b>
 <br> <code>pod-pvc</code> 이름의 파드 만들고 다음 볼륨에 연결하세요.
 <br> - 컨테이너 이미지: <code>busybox</code>
+<br> - 컨테이너 명령: <code>/bin/sh -c "while true; do echo $(date -u) >> /data/log.txt; sleep 5; done"</code>
 <br> - 타입: <code>persistentVolumeClaim</code>
+<br> - PVC 이름: <code>pvc-1</code>
 <br> - 마운트 경로: /data
 </summary>
 

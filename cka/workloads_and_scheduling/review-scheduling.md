@@ -1,9 +1,5 @@
 # (Review) Node affinities, Taints and Tolerations
 
-> 📘 Cluster: **k8s**(default)
-<br> `vagrant provision` 또는
-<br> `vagrant destroy -f && vagrant up`
-
 <details>
 <summary><b>1. Node affinities</b>
 <br>  레이블 <code>number=2</code> 을 가진 노드에만 다음 파드를 스케쥴링 하세요.
@@ -121,7 +117,7 @@ $ k describe node node-2 | grep Taint -A 5
 
 <details>
 <summary><b>5. Tolerations</b>
-<br> <code>node-3</code>에 파드가 스케쥴 될 수 있도록 <b>톨러레이션</b>과 <b>노드 어피니티</b>를 추가하세요.
+<br> <code>node-2</code>에 파드가 스케쥴 될 수 있도록 <b>톨러레이션</b>과 <b>노드 어피니티</b>를 추가하세요.
 <br> - 파드 이름: <code>must-in-two</code>
 <br> - 컨테이너 이미지: <code>nginx</code>
 </summary>
