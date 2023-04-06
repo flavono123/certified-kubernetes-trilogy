@@ -117,7 +117,7 @@ $ k describe node node-2 | grep Taint -A 5
 
 <details>
 <summary><b>5. Tolerations</b>
-<br> <code>node-3</code>에 파드가 스케쥴 될 수 있도록 <b>톨러레이션</b>과 <b>노드 어피니티</b>를 추가하세요.
+<br> <code>node-2</code>에 파드가 스케쥴 될 수 있도록 <b>톨러레이션</b>과 <b>노드 어피니티</b>를 추가하세요.
 <br> - 파드 이름: <code>must-in-two</code>
 <br> - 컨테이너 이미지: <code>nginx</code>
 </summary>
