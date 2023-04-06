@@ -29,6 +29,10 @@
 * https://cloud.google.com/sdk/docs/install?hl=ko
 
 ```shell
+$ gcloud init # 프롬프트에 전부 엔터(default)
+
+# 또는
+
 $ gcloud auth login
 $ gcloud projects list
 $ gcloud config set project <project-id>
