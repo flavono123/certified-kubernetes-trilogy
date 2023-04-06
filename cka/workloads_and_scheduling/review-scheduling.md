@@ -1,9 +1,5 @@
 # (Review) Node affinities, Taints and Tolerations
 
-> 📘 Cluster: **k8s**(default)
-<br> `vagrant provision` 또는
-<br> `vagrant destroy -f && vagrant up`
-
 <details>
 <summary><b>1. Node affinities</b>
 <br>  레이블 <code>number=2</code> 을 가진 노드에만 다음 파드를 스케쥴링 하세요.

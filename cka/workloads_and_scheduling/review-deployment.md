@@ -1,9 +1,5 @@
 # (Review) Deployments
 
-> 📘 Cluster: **k8s**(default)
-<br> `vagrant provision` 또는
-<br> `vagrant destroy -f && vagrant up`
-
 <details>
 <summary><b>1. Deployments</b>
 <br> <code>nginx:1.22.1</code> 컨테이너 이미지를 사용해 <code>nginx</code> 이름의 디플로이먼트를 만드세요.
