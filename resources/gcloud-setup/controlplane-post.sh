@@ -12,7 +12,7 @@ helm upgrade --install ingress-nginx ingress-nginx \
 
 ### sc: local-path
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.22/deploy/local-path-storage.yaml
-kubectl annotate storageclass local-path storageclass.kubernetes.io/is-default-class=true
+# kubectl annotate storageclass local-path storageclass.kubernetes.io/is-default-class=true
 
 ### sc: nfs-subdir-external-provisioner
 helm upgrade --install nfs-provisioner nfs-subdir-external-provisioner \
