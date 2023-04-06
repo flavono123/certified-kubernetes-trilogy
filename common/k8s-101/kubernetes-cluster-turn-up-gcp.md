@@ -90,6 +90,12 @@ root@node-1:~# k get po -A
 root@node-1:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/resources/gcloud-setup/controlplane-post.sh)
 ```
 
+### 방화벽 노드포트 허용
+```sh
+# 노드포트 대역의 방화벽 허용 규칙 생성
+$ gcloud compute firewall-rules create allow-nodeport --allow tcp:30000-32767
+```
+
 ### 항상 인스턴스 종료하기
 
 그날 실습이 끝나면 항상 인스턴스를 종료합시다. 사용하지 않을 땐 꺼두어야 불필요한 비용이 발생하지 않습니다.
