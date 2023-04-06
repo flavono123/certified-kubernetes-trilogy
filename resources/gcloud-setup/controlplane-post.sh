@@ -1,9 +1,7 @@
 #!/bin/sh
 
 ### ingress-nginx
-helm upgrade --install ingress-nginx ingress-nginx \
-  -n ingress-nginx --create-namespace \
-  --repo https://kubernetes.github.io/ingress-nginx
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.0/deploy/static/provider/baremetal/deploy.yaml
 
 ### metrics-server
 # helm upgrade --install metrics-server metrics-server \
