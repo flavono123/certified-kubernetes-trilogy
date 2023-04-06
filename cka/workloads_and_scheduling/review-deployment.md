@@ -6,7 +6,7 @@
 
 <details>
 <summary><b>1. Deployments</b>
-<br> <code>nginx</code> 컨테이너 이미지를 사용해 <code>nginx</code> 이름의 디플로이먼트를 만드세요.
+<br> <code>nginx:1.22.1</code> 컨테이너 이미지를 사용해 <code>nginx</code> 이름의 디플로이먼트를 만드세요.
 <br> - 레플리카 수: 3
 <br> - 컨테이너 포트: 80
 </summary>
@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:1.22.1
         ports:
         - containerPort: 80
 ```
@@ -37,7 +37,7 @@ spec:
 또는
 
 ```sh
-$ k create deploy nginx --image=nginx --replicas=3 --port=80
+$ k create deploy nginx --image=nginx:1.22.1 --replicas=3 --port=80
 ```
 
 </details>
@@ -67,7 +67,7 @@ $ k edit deploy nginx
 </summary>
 
 ```sh
-$ k set image deploy nginx nginx=nginx:1.14
+$ k set image deploy nginx nginx=nginx:1.23.4
 ```
 
 또는
@@ -102,7 +102,7 @@ kind: Deployment
 metadata:
   name: nginx
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: nginx
@@ -115,7 +115,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.13
+        image: nginx:1.22.1
         ports:
         - containerPort: 80
 ```
