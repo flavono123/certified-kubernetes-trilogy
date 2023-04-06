@@ -100,6 +100,7 @@ spec:
 <br> - 컨테이너 이미지: <code>busybox</code>
 <br> - 컨테이너 명령: <code>/bin/sh -c "while true; do echo $(date -u) >> /data/log.txt; sleep 5; done"</code>
 <br> - 타입: <code>persistentVolumeClaim</code>
+<br> - PVC 이름: <code>pvc-1</code>
 <br> - 마운트 경로: /data
 </summary>
 
