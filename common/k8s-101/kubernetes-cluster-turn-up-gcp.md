@@ -1,6 +1,6 @@
 # Kubernetes Cluster Turn up(GCP)
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>클ㅓㅅㅡclu</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>클러스터 구성</p></figcaption></figure>
 
 ### Prerequisuite
 
