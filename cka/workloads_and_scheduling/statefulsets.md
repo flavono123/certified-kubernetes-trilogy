@@ -1,17 +1,162 @@
 # StatefulSets
 
-> 📘 Cluster: **k8s**(default)
-<br> `vagrant provision` 또는
-<br> `vagrant destroy -f && vagrant up`
-
 스테이트풀셋(`StatefulSet`)은 Kubernetes에서 상태가 있는 애플리케이션을 배포하기 위한 워크로드 객체입니다. 스테이트풀셋은 각 파드에 고유한 이름을 부여하고 상태가 있는 애플리케이션을 배포할 수 있도록 합니다.
 
-디플로이먼트(`Deployment`)와 스테이트풀셋은 모두 워크로드 객체로서 파드를 배치하고, 스케일링, 롤링 업데이트, 롤백 등과 같은 작업을 수행할 수 있습니다. 그러나 디플로이먼트는 상태가 없는(stateless) 애플리케이션을 배포하기 위해 사용되며, 스케일링 및 롤링 업데이트를 수행할 때 일관성이 없을 수 있습니다. 반면, 스테이트풀셋은 상태가 있는(stateful) 애플리케이션을 배포하기 위해 사용되며, 각각의 파드에 고유한 이름과 일관된 네트워크 ID를 할당하여 일관성을 유지합니다.
+여기선 디플로이먼트(`Deployment`)와 비교하여 파드의 이름 그리고 배포할 때의 차이점만 확인하겠습니다. 스테이트풀 워크로드의 스테이트풀셋 사용은 CKAD에서 다루겠습니다.
 
-스테이트풀셋은 데이터베이스, 메시징 시스템, 데이터 스토리지 시스템 등과 같은 상태가 있는 애플리케이션을 배포하는 데 적합합니다. 반면 디플로이먼트는 웹 서버, 애플리케이션 서버, 캐시 시스템 등과 같은 상태가 없는 애플리케이션을 배포하는 데 적합합니다.
+## StatefulSet 생성
 
-스테이트풀셋은 파드의 순서가 중요한 경우에도 유용합니다. 스테이트풀셋은 각각의 파드에 순서대로 번호를 할당하고, 롤링 업데이트나 롤백 시에도 파드의 순서를 유지할 수 있습니다. 이러한 기능은 데이터베이스나 메시징 시스템 등에서 매우 중요합니다.
+다음은 스테이트풀셋을 생성하는 YAML 파일의 예입니다.
 
---- 
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+```
 
-요약하면, 스테이트풀셋은 상태가 있는 애플리케이션을 배포하기 위한 워크로드 객체이며, 각각의 파드에 고유한 이름과 일관된 네트워크 ID를 할당하여 일관성을 유지합니다. 디플로이먼트는 상태가 없는 애플리케이션을 배포하기 위한 워크로드 객체이며, 상태가 없는 애플리케이션의 배포와 스케일링에 적합합니다.
+디플로이먼트와 매우 유사합니다. 스테이트풀셋은 `kubectl create` 명령만으로 만들 수 없기 때문에, 디플로이먼트를 만든 후 `kind`를 `StatefulSet`으로 변경해 매니페스트를 생성할 수도 있습니다.
+
+위 스테이트풀셋을 만들면서 파드 생성을 모니터링하겠습니다.
+
+```sh
+# 다른 터미널에서 실행
+$ k get po -w
+NAME      READY   STATUS    RESTARTS   AGE
+nginx-0   0/1     Pending   0          0s
+nginx-0   0/1     ContainerCreating   0          0s
+nginx-0   1/1     Running             0          3s
+nginx-1   0/1     Pending             0          0s
+nginx-1   0/1     ContainerCreating   0          0s
+nginx-1   1/1     Running             0          9s
+nginx-2   0/1     Pending             0          0s
+nginx-2   0/1     ContainerCreating   0          0s
+nginx-2   1/1     Running             0          3s
+```
+
+스테이트풀셋은 파드가 생성되는 순서대로 뒤에 순번이 붙습니다. 디플로이먼트가 해시를 붙이는 것과 다릅니다. 또한 스테이트풀셋은 파드를 생성할 때 순서대로 생성합니다. 디플로이먼트는 랜덤하게 생성합니다.
+
+## StatefulSet 삭제
+
+스테이트풀셋을 삭제하면 파드도 함께 삭제됩니다. 디플로이먼트와 다르게 스테이트풀셋은 파드를 삭제할 때 순서대로 삭제합니다.
+
+```sh
+$ k delete sts nginx
+statefulset.apps "nginx" deleted
+```
+
+```sh
+# 다른 터미널에서 실행
+$ k get po -w
+nginx-2   1/1     Terminating         0          3m30s
+nginx-1   1/1     Terminating         0          3m39s
+nginx-0   1/1     Terminating         0          3m42s
+nginx-1   1/1     Terminating         0          3m39s
+nginx-0   1/1     Terminating         0          3m43s
+nginx-2   1/1     Terminating         0          3m31s
+nginx-2   0/1     Terminating         0          3m31s
+nginx-2   0/1     Terminating         0          3m31s
+nginx-2   0/1     Terminating         0          3m31s
+nginx-1   0/1     Terminating         0          3m40s
+nginx-1   0/1     Terminating         0          3m40s
+nginx-1   0/1     Terminating         0          3m40s
+nginx-0   0/1     Terminating         0          3m43s
+nginx-0   0/1     Terminating         0          3m43s
+nginx-0   0/1     Terminating         0          3m43s
+```
+
+스테이트풀셋은 스케일 아웃 시 파드 순번이 증가하며 생성되고 스케일 인 시 파드 순번이 감소하며 삭제됩니다. 업데이트 시엔 삭제처럼 나중에 생성된 파드부터 순서대로 하게 됩니다.
+
+<details>
+<summary>Q1. 다음 스테이트풀셋을 생성하세요.
+<br> - 이름: <code>web</code>
+<br> - 레플리카: <code>3</code>
+<br> - 이미지: <code>nginx</code>
+</summary>
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: nginx
+```
+</details>
+
+<details>
+<summary>Q2. <code>web</code> 스테이트풀셋의 업데이트 전략을 확인하고 <code>OnDelete</code>로 바꿔보세요.</summary>
+
+```sh
+$ k get sts web -oyaml | yq .spec.updateStrategy
+rollingUpdate:
+  partition: 0
+type: RollingUpdate
+```
+
+```yaml
+# k edit sts web
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+...
+  updateStrategy:
+    type: OnDelete # 수정
+...
+```
+
+</details>
+
+<details>
+<summary>Q3. <code>web</code> 스테이트풀셋의 업데이트 전략을 다시 <code>RollingUpdate</code>로 바꾸고 파드를 재시작 해보세요(파드 모니터)</summary>
+
+```sh
+$ k rollout restart sts web
+```
+
+```sh
+# 다른 터미널에서 실행
+$ k get po -w
+```
+
+</details>
+
+<details>
+<summary>Q4. <code>web</code> 스테이트풀셋의 레플리카를 5로 변경해보세요(파드 모니터).</summary>
+
+```sh
+$ k scale sts web --replicas=5
+```
+
+```sh
+# 다른 터미널에서 실행
+$ k get po -w
+```
+
+</details>
