@@ -1,9 +1,5 @@
 # (Review) Services, DNS, Ingresses
 
-> 📘 Cluster: **k8s**(default)
-<br> `vagrant provision` 또는
-<br> `vagrant destroy -f && vagrant up`
-
 <details>
 <summary><b>1. Services - ClusterIP</b>
 <br>  파드를 만들고 같은 이름의 서비스로 노출하세요.
