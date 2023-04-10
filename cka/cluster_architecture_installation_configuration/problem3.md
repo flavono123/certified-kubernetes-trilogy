@@ -7,19 +7,6 @@ Ssh into the controlplane node `node-1`. Check how the controlplane components k
 <br><br>
 
 Write your findings into file `root@node-1:$HOME/core-components`.txt. The file should be structured like:
-<br><br>
-
-```sh
-# root@node-1:$HOME/core-components.txt
-kubelet: [TYPE]
-kube-apiserver: [TYPE]
-kube-scheduler: [TYPE]
-kube-controller-manager: [TYPE]
-etcd: [TYPE]
-dns: [TYPE] [NAME]
-Choices of [TYPE] are: not-installed, process, static-pod, pod
-```
-
 </summary>
 
 kubelet: process
@@ -54,3 +41,13 @@ EOF
 
 </details>
 
+```sh
+# root@node-1:$HOME/core-components.txt
+kubelet: [TYPE]
+kube-apiserver: [TYPE]
+kube-scheduler: [TYPE]
+kube-controller-manager: [TYPE]
+etcd: [TYPE]
+dns: [TYPE] [NAME]
+Choices of [TYPE] are: not-installed, process, static-pod, pod
+```
