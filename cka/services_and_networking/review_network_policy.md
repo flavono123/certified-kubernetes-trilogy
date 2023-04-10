@@ -9,7 +9,7 @@
 <br>connect to <code>db</code> Pods on port 1111
 <br>Use the <code>app</code> label of Pods in your policy.
 <br>
-<br>After implementation, connections from backend Pods to <code>vault</code> Pods on port 9999 should for example no longer work.
+<br>After implementation, connections from <code>backend</code> Pods to <code>vault</code> Pods on port 9999 should for example no longer work.
 <br>(Run following commands to set this scenario up)
 </summary>
 
