@@ -4,8 +4,10 @@
 <summary>
 
 Ssh into the controlplane node `node-1`. Check how the controlplane components kubelet, kube-apiserver, kube-scheduler, kube-controller-manager and etcd are started/installed on the controlplane node. Also find out the name of the DNS application and how it's started/installed on the controlplane node.
+<br><br>
 
 Write your findings into file `root@node-1:$HOME/core-components`.txt. The file should be structured like:
+<br><br>
 
 ```sh
 # root@node-1:$HOME/core-components.txt

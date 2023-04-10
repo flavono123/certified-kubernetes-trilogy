@@ -3,9 +3,11 @@
 <details>
 <summary>
 You're ask to find out following information about the cluster
+<br><br>
 
 - What is the Service CIDR?
 - What is the Pod CIDR?
+<br><br>
 
 Write your answers into file `root@node1:$HOME/cluster-info`, structured like this:
 

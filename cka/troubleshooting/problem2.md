@@ -4,8 +4,10 @@
 <summary>
 
 In *Namespace* `default` create a *Pod* named `maelstrom` of image `httpd:2.4.41-alpine` whose resource requests for `10m` CPU and `20Mi` memory. Find out on which node the Pod is scheduled. Ssh into that node and find the containerd container belonging to that Pod.
+<br><br>
 
 Using command crictl:
+<br><br>
 
 Write the ID of the container and the `info.runtimeType` into `root@node-1:$HOME/pod-container.txt`
 Write the logs of the container into `root@node-1:$HOME/pod-container.log`

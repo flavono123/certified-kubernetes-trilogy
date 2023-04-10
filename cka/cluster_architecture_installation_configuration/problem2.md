@@ -4,8 +4,10 @@
 <summary>
 
 Check how long the kube-apiserver server certificate is valid on `node-1`. Do this with openssl or cfssl. Write the exipiration date into `root@node-1:$HOME/expiration.txt`.
+<br><br>
 
 Also run the correct `kubeadm` command to list the expiration dates and confirm both methods show the same date.
+<br><br>
 
 Write the correct `kubeadm` command that would renew the apiserver server certificate into `root@node-1:$HOME/kubeadm-renew-certs.sh`.
 </summary>

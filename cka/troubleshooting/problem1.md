@@ -4,10 +4,13 @@
 <summary>
 
 Write a command into `root@node-1:$HOME/cluster_events.sh` which shows the latest events in the whole cluster, ordered by time (`metadata.creationTimestamp`). Use kubectl for it.
+<br><br>
 
 Now kill the kube-proxy Pod running on node `node-3` and write the events this caused into `root@node-1:$HOME/pod_kill.log`.
+<br><br>
 
 Finally kill the containerd container of the kube-proxy Pod on node `node-3` and write the events into `root@node-1:$HOME/container_kill.log`.
+<br><br>
 
 Do you notice differences in the events both actions caused?
 </summary>

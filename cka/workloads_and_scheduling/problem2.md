@@ -4,8 +4,10 @@
 <summary>
 
 Do the following in *Namespace* `default`. Create a single *Pod* named `waiting-svc-ready` of image `nginx:1.16.1-alpine`. Configure a LivenessProbe which simply executes command `true`. Also configure a ReadinessProbe which does check if the url `http://svc-ready:80` is reachable, you can use `wget -T2 -O- http://svc-ready:80` for this. Start the *Pod* and confirm it isn't ready because of the ReadinessProbe.
+<br><br>
 
 Create a second *Pod* named `ready` of image `nginx:1.16.1-alpine` with label `id: cross-ready`. Expose the second *Pod* to a *Service* named `svc-ready`.
+<br><br>
 
 Now the first *Pod* should be in ready state, confirm that.
 </summary>

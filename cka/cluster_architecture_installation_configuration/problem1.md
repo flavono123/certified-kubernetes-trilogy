@@ -4,12 +4,15 @@
 <summary>
 
 *Node* `node-2` has been added to the cluster using kubeadm and TLS bootstrapping.
+<br><br>
 
 Find the "Issuer" and "Extended Key Usage" values of the `node-2`:
+<br><br>
 
 kubelet **client** certificate, the one used for outgoing connections to the kube-apiserver.
 kubelet **server** certificate, the one used for incoming connections from the kube-apiserver.
 Write the information into file `root@node-1$HOME/cert-info.txt`.
+<br><br>
 
 Compare the "Issuer" and "Extended Key Usage" fields of both certificates and make sense of these.
 </summary>
