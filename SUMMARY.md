@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Contents](README.md)
-* [Gitbook test](gitbook-test.md)
 
 ## Common
 
