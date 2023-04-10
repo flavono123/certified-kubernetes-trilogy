@@ -1,9 +1,5 @@
 # Container Network Interface
 
-> 📘 Cluster: **k8s**(default)
-<br> `vagrant provision` 또는
-<br> `vagrant destroy -f && vagrant up`
-
 컨테이너 네트워킹 인터페이스(CNI)는 Kubernetes에서 컨테이너의 네트워크 구성을 관리하는 방법입니다. CNI 플러그인은 Kubernetes 노드와 컨테이너 사이의 네트워크 연결을 관리하며, 각 컨테이너에 IP 주소와 같은 필수 네트워크 구성 요소를 제공합니다. 이러한 CNI 플러그인은 다양한 네트워크 토폴로지 및 프로토콜을 지원하며, 특정 플러그인을 사용하여 Kubernetes 클러스터의 네트워크를 구성할 수 있습니다.
 
 CNI 바이너리와 구성 파일의 default 경로는 각각 다음과 같습니다:
