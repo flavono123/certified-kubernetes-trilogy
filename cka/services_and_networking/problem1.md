@@ -2,44 +2,36 @@
 
 <details>
 <summary>
+You're ask to find out following information about the cluster
 
-*Node* `node-2` has been added to the cluster using kubeadm and TLS bootstrapping.
+- What is the Service CIDR?
+- What is the Pod CIDR?
 
-Find the "Issuer" and "Extended Key Usage" values of the `node-2`:
-
-kubelet **client** certificate, the one used for outgoing connections to the kube-apiserver.
-kubelet **server** certificate, the one used for incoming connections from the kube-apiserver.
-Write the information into file `root@node-1$HOME/cert-info.txt`.
-
-Compare the "Issuer" and "Extended Key Usage" fields of both certificates and make sense of these.
-</summary>
+Write your answers into file `root@node1:$HOME/cluster-info`, structured like this:
 
 ```sh
-# your local
-$ gcloud compute ssh node-2
+#/root/cluster-info
+Service CIDR: [ANSWER]
+Pod CIDR: [ANSWER]
+```
+</summary>
 
-# node-2 as root
-$ systemctl cat kubelet
+\* Service CIDR 참고: https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
 
-# check kubeconfig path -> /etc/kubernetes/kubelet.conf
-# check cert path from kubeconfig for kubelet -> /var/lib/kubelet/pki/kubelet-client-current.pem
+\* Pod CIDR 참고: https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/
 
-# client cert
-$ openssl x509  -noout -text -in /var/lib/kubelet/pki/kubelet-client-current.pem
+```sh
+# Service CIDR
+$ cat /etc/kubernetes/manifests/kube-apiserver.yaml | yq .spec.containers[0].command | grep service-cluster-ip-range
 
-# server cert
-$ openssl x509  -noout -text -in /var/lib/kubelet/pki/kubelet.crt
+# Pod CIDR
+$ cat /etc/kubernetes/manifests/kube-controller-manager.yaml | yq .spec.containers[0].command | grep cluster-cidr
 ```
 
 ```sh
-# Client Certificate
-$ echo "Issuer: kubernetes" >> ~/cert-info.txt
-$ echo "Extended Key Usage: TLS Web Client Authentication" >> ~/cert-info.txt
-
-# Server Certificate
-$ echo "Issuer: node-1-ca@1680886607" >> ~/cert-info.txt
-$ echo "Extended Key Usage: TLS Web Server Authentication" >> ~/cert-info.txt
+$ cat <<EOF > /root/cluster-info
+Service CIDR: 10.96.0.0/12
+Pod CIDR: 172.16.0.0/16
 ```
 
 </details>
-
