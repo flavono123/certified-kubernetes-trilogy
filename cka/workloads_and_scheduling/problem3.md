@@ -3,7 +3,7 @@
 <details>
 <summary>
 
-Create a *Pod* named `certified` in new *Namespace* `foudation` with three containers, named `admin`, `developer` and `specailist`. There should be a volume attached to that *Pod* and mounted into every container, but the volume shouldn't be persisted or shared with other Pods.
+Create a *Pod* named `certified` in new *Namespace* `foundation` with three containers, named `admin`, `developer` and `specialist`. There should be a volume attached to that *Pod* and mounted into every container, but the volume shouldn't be persisted or shared with other Pods.
 <br><br>
 
 Container `admin` should be of image `nginx:1.17.6-alpine` and have the name of the node where its Pod is running available as environment variable `HOSTNAME_SCHEDULED`.
