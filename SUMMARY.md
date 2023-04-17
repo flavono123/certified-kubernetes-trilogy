@@ -72,3 +72,13 @@
   * [Problem1](cka/troubleshooting/problem1.md)
   * [Problem2](cka/troubleshooting/problem2.md)
   * [Problem3](cka/troubleshooting/problem3.md)
+
+## CKAD
+
+* [Application Design and Build](cka/application-design-and-build/README.md)
+  * [(Review) Multi-container Pod Design Patterns](cka/application-design-and-build/review-multi-container-pod-design-pattern.md)
+  * [Job and CronJob](cka/application-design-and-build/job-and-cronjob.md)
+  * [(Review) Volumes, Persistent Volumes](cka/application-design-and-build/review-volume-pv.md)
+  * [(Review) Storage Class](cka/application-design-and-build/review-storage-class.md)
+  * [StatefulSet](cka/application-design-and-build/statefulset.md)
+  * [Headless Service](cka/application-design-and-build/headless-service.md)
