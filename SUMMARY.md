@@ -93,4 +93,9 @@
   * [(Review) API Group and Version](ckad/application-observability-and-maintenance/review-api-group-version.md)
   * [API Deprication](ckad/application-observability-and-maintenance/api-deprication.md)
   * [Resource Usage Metrics](ckad/application-observability-and-maintenance/resource-usage-metrics.md)
-
+* [Application Environment, Configuration and Security](ckad/application-environment-configuration-and-security/README.md)
+  * [Custom Controller and CRD](ckad/application-environment-configuration-and-security/custom-controller-crd.md)
+  * [(Review) RBAC](ckad/application-environment-configuration-and-security/review-rbac.md)
+  * [Admission Controller](ckad/application-environment-configuration-and-security/admission-controller.md)
+  * [(Review) Pod Resource Quota](ckad/application-environment-configuration-and-security/review-resources.md)
+  * [(Review) ConfigMap and Secret](ckad/application-environment-configuration-and-security/review-configmap-secret.md)
