@@ -87,3 +87,10 @@
   * [Blue/Green Deployment](ckad/application-deployment/blue-green-deployment.md)
   * [Canary Deployment](ckad/application-deployment/canary-deployment.md)
   * [Helm](ckad/application-deployment/helm.md)
+*[Application Observability and Maintenance](ckad/application-observability-and-maintenance/README.md)
+  * [(Review) Log, Monitoring](ckad/application-observability-and-maintenance/review-log-monitoring.md)]
+  * [Liveness and Readiness Probe](ckad/application-observability-and-maintenance/liveness-readiness-probes.md)
+  * [(Review) API Group and Version](ckad/application-observability-and-maintenance/review-api-group-version.md)
+  * [API Deprication](ckad/application-observability-and-maintenance/api-deprication.md)
+  * [Resource Usage Metrics](ckad/application-observability-and-maintenance/resource-usage-metrics.md)
+
