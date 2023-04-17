@@ -75,10 +75,15 @@
 
 ## CKAD
 
-* [Application Design and Build](cka/application-design-and-build/README.md)
-  * [(Review) Multi-container Pod Design Patterns](cka/application-design-and-build/review-multi-container-pod-design-pattern.md)
-  * [Job and CronJob](cka/application-design-and-build/job-and-cronjob.md)
-  * [(Review) Volumes, Persistent Volumes](cka/application-design-and-build/review-volume-pv.md)
-  * [(Review) Storage Class](cka/application-design-and-build/review-storage-class.md)
-  * [StatefulSet](cka/application-design-and-build/statefulset.md)
-  * [Headless Service](cka/application-design-and-build/headless-service.md)
+* [Application Design and Build](ckad/application-design-and-build/README.md)
+  * [(Review) Multi-container Pod Design Patterns](ckad/application-design-and-build/review-multi-container-pod-design-pattern.md)
+  * [Job and CronJob](ckad/application-design-and-build/job-and-cronjob.md)
+  * [(Review) Volumes, Persistent Volumes](ckad/application-design-and-build/review-volume-pv.md)
+  * [(Review) Storage Class](ckad/application-design-and-build/review-storage-class.md)
+  * [StatefulSet](ckad/application-design-and-build/statefulset.md)
+  * [Headless Service](ckad/application-design-and-build/headless-service.md)
+* [Application Deployment](ckad/application-deployment/README.md)
+  * [(Review) Deployments](ckad/application-deployment/review-deployment.md)
+  * [Blue/Green Deployment](ckad/application-deployment/blue-green-deployment.md)
+  * [Canary Deployment](ckad/application-deployment/canary-deployment.md)
+  * [Helm](ckad/application-deployment/helm.md)
