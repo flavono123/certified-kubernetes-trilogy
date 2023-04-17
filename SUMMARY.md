@@ -99,3 +99,7 @@
   * [Admission Controller](ckad/application-environment-configuration-and-security/admission-controller.md)
   * [(Review) Pod Resource Quota](ckad/application-environment-configuration-and-security/review-resources.md)
   * [(Review) ConfigMap and Secret](ckad/application-environment-configuration-and-security/review-configmap-secret.md)
+* [Service and Networking](ckad/service-and-networking/README.md)
+  * [(Review) Service, DNS, Ingress](ckad/service-and-networking/review-service-dns-ingress.md)
+  * [(Review) Network Policy](ckad/service-and-networking/review-network-policy.md)
+  * [(Review) Application Troubleshooting](ckad/service-and-networking/review-application-troubleshooting.md)
