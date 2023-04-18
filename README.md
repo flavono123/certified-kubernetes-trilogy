@@ -14,9 +14,9 @@
    4. Cluster Architecture, Installation & Configuration
    5. Troubleshooting
 3. CKAD
-   1. Application Deployment
-   2. Application Observability and Maintenance
-   3. Application Design and Build
+   1. Application Design and Build
+   2. Application Deployment
+   3. Application Observability and Maintenance
    4. Application Environment, Configuration and Security
    5. Services and Networking
 4. CKS
