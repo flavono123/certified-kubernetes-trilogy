@@ -78,7 +78,7 @@
 * [Application Design and Build](ckad/application-design-and-build/README.md)
   * [(Review) Multi-container Pod Design Patterns](ckad/application-design-and-build/review-multi-container-pod-design-pattern.md)
   * [Job and CronJob](ckad/application-design-and-build/job-and-cronjob.md)
-  * [(Review) Volumes, Persistent Volumes](ckad/application-design-and-build/review-volume-pv.md)
+  * [(Review) Volumes, Persistent Volumes](cka/storage/review-volume-pv.md)
   * [(Review) Storage Class](ckad/application-design-and-build/review-storage-class.md)
   * [StatefulSet](ckad/application-design-and-build/statefulset.md)
   * [Headless Service](ckad/application-design-and-build/headless-service.md)
