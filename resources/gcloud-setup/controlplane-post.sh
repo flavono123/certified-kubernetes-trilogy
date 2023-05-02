@@ -8,6 +8,15 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 #   -n kube-system --create-namespace \
 #   --repo https://kubernetes-sigs.github.io/metrics-server
 
+### metallb
+wget -qO- https://raw.githubusercontent.com/metallb/metallb/v0.13.7/config/manifests/metallb-native.yaml | \
+  sed 's/failurePolicy: Fail/failurePolicy: Ignore/' | \
+  kubectl apply -f -
+
+sleep 40 # wait for metallb to be ready
+
+kubectl apply -f https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/resources/gcloud-setup/l2conf.yaml
+
 ### sc: local-path
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.22/deploy/local-path-storage.yaml
 # kubectl annotate storageclass local-path storageclass.kubernetes.io/is-default-class=true
