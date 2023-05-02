@@ -170,5 +170,5 @@ systemctl daemon-reload
 service kubelet start
 
 echo
-echo "`node-1`에서 출력된 `kubeadm join...` 명령을 여기(worker)에서 실행"
+echo "node-1에서 출력된 kubeadm join... 명령을 여기(worker)에서 실행"
 echo
