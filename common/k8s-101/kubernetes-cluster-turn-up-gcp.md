@@ -110,3 +110,37 @@ $ gcloud compute instances stop node-1 node-2 node-3
 $ gcloud compute instances start node-1 node-2 node-3
 $ gcloud compute ssh node-1
 ```
+
+## 클러스터 삭제(Clean up)
+
+실습 환경 클러스터를 삭제하거나 다시 구성하고 싶을 때 사용하세요. 워커노드 2대를 삭제하고 컨트롤플레인노드를 삭제하는 순서입니다(VM은 삭제하지 않습니다).
+
+### 워커 노드
+
+**Drain**
+```sh
+# node-1
+root@node-1:~# k drain node-3 --ignore-daemonsets --delete-emptydir-data --force
+```
+
+**Reset**
+```sh
+# node-2
+root@node-2:~# bash <(curl -s https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/resources/gcloud-setup/worker-teardown.sh)
+```
+
+**삭제**
+```sh
+# node-1
+root@node-1:~# k delete node node-3
+```
+
+(`node-2`에 대해서도 똑같이 반복)
+
+### 컨트롤 플레인
+
+**Reset**
+```sh
+# node-1
+root@node-1:~# kubeadm reset
+```
