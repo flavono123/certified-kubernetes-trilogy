@@ -193,7 +193,7 @@ rm -rf ${ETCDCTL_VERSION_FULL} ${ETCDCTL_VERSION_FULL}.tar.gz
 
 ### nfs
 apt-get install -y nfs-kernel-server
-mkdir /nfs-storage
+mkdir -p /nfs-storage
 chmod 777 /nfs-storage
 chown nobody:nogroup /nfs-storage
 echo "/nfs-storage $(ip n | grep ens4 | awk '{ print $1 }' | sed -e 's/1$/0\/24/')(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
