@@ -179,7 +179,7 @@ sudo apt-get install helm
 helm upgrade --install tigera-operator tigera-operator \
   -n tigera-operator --create-namespace \
   --repo https://projectcalico.docs.tigera.io/charts \
-  --values https://raw.githubusercontent.com/flavono123/kubernetes-the-hard-way/main/gcloud-setup/charts/calico/values.yaml
+  --values https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/gcloud-setup/charts/calico/values.yaml
 
 
 # etcdctl
