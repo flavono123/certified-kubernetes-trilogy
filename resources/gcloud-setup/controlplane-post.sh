@@ -4,9 +4,10 @@
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.0/deploy/static/provider/baremetal/deploy.yaml
 
 ### metrics-server
-# helm upgrade --install metrics-server metrics-server \
-#   -n kube-system --create-namespace \
-#   --repo https://kubernetes-sigs.github.io/metrics-server
+helm upgrade --install metrics-server metrics-server \
+  -n kube-system --create-namespace \
+  --repo https://kubernetes-sigs.github.io/metrics-server \
+  --set defaultArgs="{--cert-dir=/tmp,--kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname,--kubelet-use-node-status-port,--metric-resolution=15s,--kubelet-insecure-tls}"
 
 ### metallb
 wget -qO- https://raw.githubusercontent.com/metallb/metallb/v0.13.7/config/manifests/metallb-native.yaml | \
