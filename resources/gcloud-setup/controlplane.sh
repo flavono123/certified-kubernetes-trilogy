@@ -196,7 +196,9 @@ apt-get install -y nfs-kernel-server
 mkdir -p /nfs-storage
 chmod 777 /nfs-storage
 chown nobody:nogroup /nfs-storage
-echo "/nfs-storage $(ip n | grep ens4 | awk '{ print $1 }' | sed -e 's/1$/0\/24/')(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
+echo "/nfs-storage $(ip n | grep ens4 | awk '{ print $1 }' | sed -e 's/1$/0\/24/')(rw,sync,no_subtree_check,no_root_squash)" > /tmp/exports
+sudo cp /etc/exports /etc/exports.bak
+sudo cp /tmp/exports /etc/exports
 systemctl restart nfs-kernel-server
 apt-get install -y nfs-common
 
