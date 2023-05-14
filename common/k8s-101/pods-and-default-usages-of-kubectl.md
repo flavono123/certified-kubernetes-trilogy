@@ -123,7 +123,7 @@ You created the pod above as an imperative way. There is another way to create a
 First, you can check the pod declaration(YAML) like this. `-o` is for output format.
 
 ```shell
-$ k describe po test -oyaml
+$ k get po test -oyaml
 apiVersion: v1
 kind: Pod
 metadata:
