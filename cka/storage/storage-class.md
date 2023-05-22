@@ -1,4 +1,5 @@
 # StorageClass
+<figure><img src="../../.gitbook/assets/cka/storage/storage-class.jpeg" alt=""><figcaption><p>StorageClass</p></figcaption></figure>
 
 StorageClass는 PersistentVolume(PV)을 동적으로 생성하기 위한 오브젝트입니다. StorageClass를 사용하면 사용자는 스토리지 클래스의 특성을 정의할 수 있으며, PersistentVolumeClaim(PVC)에서 참조할 수 있습니다.
 

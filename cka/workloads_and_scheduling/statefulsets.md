@@ -1,4 +1,5 @@
 # StatefulSets
+<figure><img src="../../.gitbook/assets/cka/workloads-and-scheduling/statefulsets1.jpeg" alt=""><figcaption><p>StatefulSets</p></figcaption></figure>
 
 스테이트풀셋(`StatefulSet`)은 Kubernetes에서 상태가 있는 애플리케이션을 배포하기 위한 워크로드 객체입니다. 스테이트풀셋은 각 파드에 고유한 이름을 부여하고 상태가 있는 애플리케이션을 배포할 수 있도록 합니다.
 
