@@ -1,4 +1,5 @@
 # DaemonSet
+<figure><img src="../../.gitbook/assets/cka/storage/daemonsets.jpeg" alt=""><figcaption><p>DaemonSets</p></figcaption></figure>
 
 데몬셋(`DaemonSet`)은 클러스터 내 모든 노드에서 특정 파드가 실행되도록 보장하는 워크로드 객체입니다. 시스템 데몬, 로깅 에이전트 및 클러스터 내 모든 노드에서 실행해야 하는 유형의 작업에 자주 사용됩니다.
 
