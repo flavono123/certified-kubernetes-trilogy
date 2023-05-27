@@ -1,1 +1,1 @@
-[Statefulsets](/cka/workloads_and_scheduling/statefulsets.md)
+[StatefulSets](cka/workloads\_and\_scheduling/statefulsets.md)
