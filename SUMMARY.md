@@ -82,6 +82,7 @@
   * [(Review) Storage Class](ckad/application-design-and-build/review-storage-class.md)
   * [StatefulSets](ckad/application-design-and-build/statefulset.md)
   * [Headless Service](ckad/application-design-and-build/headless-service.md)
+  * [VolumeClaimTemplates](ckad/application-design-and-build/volumeclaimtemplates.md)
 * [Application Deployment](ckad/application-deployment/README.md)
   * [(Review) Deployments](ckad/application-deployment/review-deployment.md)
   * [Blue/Green Deployment](ckad/application-deployment/blue-green-deployment.md)
