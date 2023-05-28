@@ -75,7 +75,7 @@ pvc-3294c026-8ff6-4e81-90c8-4b29c81684fe   500Mi      RWO            Delete     
 <details>
 <summary>
 
-Q1. 다음 스테이트풀셋을 생성하세요.****
+Q1. 다음 스테이트풀셋을 생성하세요.
 <br> - 이름: `web`
 <br> - 레플리카: `3`
 <br> - 레이블 셀렉터: `app=nginx`
