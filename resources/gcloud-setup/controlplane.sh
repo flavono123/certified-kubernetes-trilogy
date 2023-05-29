@@ -55,6 +55,64 @@ cat <<EOF | sudo tee /etc/containers/registries.conf
 registries = ['docker.io']
 EOF
 
+### install distribution
+
+# install docker
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# write append "127.0.0.1 private-registry.io"  to /etc/hosts if not exists
+if ! grep -q "private-registry.io" /etc/hosts; then
+  echo "127.0.0.1 private-registry.io" >> /etc/hosts
+fi
+
+cat <<EOF > /etc/docker/daemon.json
+{
+  "insecure-registries" : ["http://private-registry.io:5000"]
+}
+EOF
+
+rm -rf certs/*
+mkdir -p certs
+openssl req \
+  -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \
+  -addext "subjectAltName = DNS:myregistry.domain.com" \
+  -x509 -days 365 -out certs/domain.crt \
+  -subj "/CN=private-registry.io"
+cp certs/domain.crt /usr/local/share/ca-certificates/private-registry.io.crt
+mkdir -p /etc/docker/certs.d/private-registry.io:5000
+cp certs/domain.crt /etc/docker/certs.d/private-registry.io:5000/ca.crt
+cp certs/domain.crt /etc/docker/certs.d/private-registry.io:5000/domain.cert
+cp certs/domain.key /etc/docker/certs.d/private-registry.io:5000/domain.key
+
+systemctl daemon-reload
+systemctl restart docker
+
+mkdir -p auth
+docker run \
+  --entrypoint htpasswd \
+  httpd:2 -Bbn testuser testpassword > auth/htpasswd
+docker rm -f registry || true
+docker run -d \
+  -p 5000:5000 \
+  --restart=always \
+  --name registry \
+  -v "$(pwd)"/auth:/auth \
+  -e "REGISTRY_AUTH=htpasswd" \
+  -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" \
+  -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
+  -v "$(pwd)"/certs:/certs \
+  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
+  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
+  registry:2
+
+podman login private-registry.io:5000 -u testuser -p testpassword --tls-verify=false
 
 ### install packages
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
