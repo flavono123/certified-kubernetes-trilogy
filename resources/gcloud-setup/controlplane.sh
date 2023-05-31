@@ -82,7 +82,7 @@ rm -rf certs/*
 mkdir -p certs
 openssl req \
   -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \
-  -addext "subjectAltName = DNS:myregistry.domain.com" \
+  -addext "subjectAltName = DNS:private-registry.io" \
   -x509 -days 365 -out certs/domain.crt \
   -subj "/CN=private-registry.io"
 cp certs/domain.crt /usr/local/share/ca-certificates/private-registry.io.crt
