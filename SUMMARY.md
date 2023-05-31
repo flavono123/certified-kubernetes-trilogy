@@ -87,6 +87,7 @@
   * [(Review) Deployments](ckad/application-deployment/review-deployment.md)
   * [Blue/Green Deployment](ckad/application-deployment/blue-green-deployment.md)
   * [Canary Deployment](ckad/application-deployment/canary-deployment.md)
+  * [Podman](ckad/application-deployment/podman.md)
   * [Helm](ckad/application-deployment/helm.md)
 *[Application Observability and Maintenance](ckad/application-observability-and-maintenance/README.md)
   * [(Review) Log, Monitoring](ckad/application-observability-and-maintenance/review-log-monitoring.md)]
