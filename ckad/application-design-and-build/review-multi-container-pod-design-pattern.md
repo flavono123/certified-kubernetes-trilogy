@@ -133,7 +133,10 @@ $ k logs multi-con-pod3 -c con2
 172.16.25.1 - - [03/Jun/2023:04:26:23 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.68.0" "-"
 ```
 
+</details>
+
 <details>
+
 <summary>
 
 Q5. 파드 `multi-con-pod4`의 컨테이너 `con2`에서 `http://localhost` 요청 결과를 확인하세요.
