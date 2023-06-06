@@ -2,12 +2,12 @@
 <summary>
 
 Q1. 다음 파드를 생성하세요.
-<br> - 이름: `multi-con-pod`
-<br> - 컨테이너1 이름: `con1`
-<br> - 컨테이너1 이미지: `nginx:1.19.10`
-<br> - 컨테이너2 이름: `con2`
-<br> - 컨테이너2 이미지: `busybox:1.32.1`
-<br> - 컨테이너2 명령어: `sleep 3600`
+- 이름: `multi-con-pod`
+- 컨테이너1 이름: `con1`
+- 컨테이너1 이미지: `nginx:1.19.10`
+- 컨테이너2 이름: `con2`
+- 컨테이너2 이미지: `busybox:1.32.1`
+- 컨테이너2 명령어: `sleep 3600`
 </summary>
 
 ```yaml
@@ -31,14 +31,14 @@ spec:
 <summary>
 
 Q2. 다음 파드를 생성하세요.
-<br> - 이름: `multi-con-pod2`
-<br> - 컨테이너1 이름: `con1`
-<br> - 컨테이너1 이미지: `nginx:1.19.10`
-<br> - 컨테이너1 리소스 요청: cpu `200m`, memory `256Mi`
-<br> - 컨테이너2 이름: `con2`
-<br> - 컨테이너2 이미지: `busybox:1.32.1`
-<br> - 컨테이너2 명령어: `sleep 3600`
-<br> - 컨테이너2 리소스 요청: cpu `100m`, memory `128Mi`
+- 이름: `multi-con-pod2`
+- 컨테이너1 이름: `con1`
+- 컨테이너1 이미지: `nginx:1.19.10`
+- 컨테이너1 리소스 요청: cpu `200m`, memory `256Mi`
+- 컨테이너2 이름: `con2`
+- 컨테이너2 이미지: `busybox:1.32.1`
+- 컨테이너2 명령어: `sleep 3600`
+- 컨테이너2 리소스 요청: cpu `100m`, memory `128Mi`
 
 </summary>
 
@@ -86,15 +86,15 @@ $ k logs multi-con-pod -c con2
 <summary>
 
 Q4. 컨테이너 `con1`의 로그 파일, `/var/log/nginx/access.log`를 컨테이너 `con2`의 표준출력으로 출력하세요.
-<br> - 이름: `multi-con-pod3`
-<br> - 컨테이너1 이름: `con1`
-<br> - 컨테이너1 이미지: `nginx:1.19.10`
-<br> - 컨테이너2 이름: `con2`
-<br> - 컨테이너2 이미지: `busybox:1.32.1`
-<br> - 컨테이너2 명령어: `tail -f /var/log/nginx/access.log`
-<br> - 볼륨 이름: `nginx-log`
-<br> - 볼륨 타입: `emptyDir`
-<br> - 볼륨 마운트 경로: `/var/log/nginx`
+- 이름: `multi-con-pod3`
+- 컨테이너1 이름: `con1`
+- 컨테이너1 이미지: `nginx:1.19.10`
+- 컨테이너2 이름: `con2`
+- 컨테이너2 이미지: `busybox:1.32.1`
+- 컨테이너2 명령어: `tail -f /var/log/nginx/access.log`
+- 볼륨 이름: `nginx-log`
+- 볼륨 타입: `emptyDir`
+- 볼륨 마운트 경로: `/var/log/nginx`
 
 </summary>
 
@@ -140,12 +140,12 @@ $ k logs multi-con-pod3 -c con2
 <summary>
 
 Q5. 파드 `multi-con-pod4`의 컨테이너 `con2`에서 `http://localhost` 요청 결과를 확인하세요.
-<br> - 이름: `multi-con-pod4`
-<br> - 컨테이너1 이름: `con1`
-<br> - 컨테이너1 이미지: `nginx:1.19.10`
-<br> - 컨테이너2 이름: `con2`
-<br> - 컨테이너2 이미지: `busybox:1.32.1`
-<br> - 컨테이너2 명령어: `sh -c "wget -qO - http://localhost && sleep 3600"`
+- 이름: `multi-con-pod4`
+- 컨테이너1 이름: `con1`
+- 컨테이너1 이미지: `nginx:1.19.10`
+- 컨테이너2 이름: `con2`
+- 컨테이너2 이미지: `busybox:1.32.1`
+- 컨테이너2 명령어: `sh -c "wget -qO - http://localhost && sleep 3600"`
 
 </summary>
 

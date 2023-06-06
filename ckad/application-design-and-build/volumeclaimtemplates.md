@@ -18,19 +18,19 @@ spec:
         app: mysql
     spec:
       containers:
-      <br> - name: mysql
+      - name: mysql
         image: mysql:5.7
         ports:
-        <br> - containerPort: 3306
+        - containerPort: 3306
           name: mysql
         env:
-        <br> - name: MYSQL_ALLOW_EMPTY_PASSWORD
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD
           value: "1"
         volumeMounts:
-        <br> - name: data-mysql
+        - name: data-mysql
           mountPath: /var/lib/mysql
   volumeClaimTemplates:
-  <br> - metadata:
+  - metadata:
       name: data-mysql
     spec:
       accessModes: [ "ReadWriteOnce" ]
