@@ -33,4 +33,4 @@ spec:
 ```
 </details>
 
-**문제 준비: `k apply -f raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/resources/manifests/ckad/service-and-networking/problem1.yaml`**
+**문제 준비: `k apply -f https://raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/resources/manifests/ckad/service-and-networking/problem1.yaml`**
