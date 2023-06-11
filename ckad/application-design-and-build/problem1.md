@@ -9,5 +9,61 @@ Finally create a new *Deployment* `ckad-deploy` in Namespace `default` which mou
 
 </summary>
 
+```yaml
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+ name: ckad-pv
+spec:
+ capacity:
+  storage: 2Gi
+ accessModes:
+  - ReadWriteOnce
+ hostPath:
+  path: "/Volumes/Data"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: ckad-pvc
+  namespace: earth
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+     storage: 2Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ckad-deploy
+  name: ckad-deploy
+  namespace: earth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ckad-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ckad-deploy
+    spec:
+      volumes:                                      # add
+      - name: data                                  # add
+        persistentVolumeClaim:                      # add
+          claimName: ckad-pvc  # add
+      containers:
+      - image: httpd:2.4.41-alpine
+        name: container
+        volumeMounts:                               # add
+        - name: data                                # add
+          mountPath: /tmp/project-data              # add
+```
 
 </details>

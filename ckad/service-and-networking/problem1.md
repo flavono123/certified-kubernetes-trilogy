@@ -7,6 +7,30 @@ Test using: `wget www.google.com` and `wget api:2222` from a Pod of Deployment f
 
 </summary>
 
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np1
+  namespace: venus
+spec:
+  podSelector:
+    matchLabels:
+      id: frontend
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          id: api
+  - ports:
+    - port: 53
+      protocol: UDP
+    - port: 53
+      protocol: TCP
+```
 </details>
 
 **문제 준비: `k apply -f raw.githubusercontent.com/flavono123/certified-kubernetes-trilogy/main/resources/manifests/ckad/service-and-networking/problem1.yaml`**
