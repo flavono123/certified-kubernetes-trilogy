@@ -6,11 +6,11 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-      app: frontend
+      id: frontend
   template:
     metadata:
       labels:
-        app: frontend
+        id: frontend
     spec:
       containers:
       - name: frontend
@@ -24,7 +24,7 @@ metadata:
   name: frontend
 spec:
   selector:
-    app: frontend
+    id: frontend
   ports:
   - protocol: TCP
     port: 80
@@ -39,11 +39,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: api
+      id: api
   template:
     metadata:
       labels:
-        app: api
+        id: api
     spec:
       containers:
       - name: api
@@ -57,7 +57,7 @@ metadata:
   name: api
 spec:
   selector:
-    app: api
+    id: api
   ports:
   - protocol: TCP
     port: 2222
